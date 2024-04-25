@@ -11,17 +11,26 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class class1
 {
-    /**
-     * Rigorous Test :-)
-     * @throws InterruptedException 
-     */
+   WebDriver driver; 
+
+@BeforeMethod
+public void play()
+{
+   WebDriverManager.chromedriver().setup();
+   WebDriver driver =new ChromeDriver();
+   driver.get("https://www.moneycontrol.com/");
+}
+
+
     @Test
     public void shouldAnswerWithTrue() throws InterruptedException
     {
@@ -56,5 +65,8 @@ public class AppTest
         driver.findElement(By.linkText("SIP")).click();
         Thread.sleep(5000);
         driver.quit();
+
+        
+
     }
 }
